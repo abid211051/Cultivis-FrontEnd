@@ -3,9 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ScrollArea } from "../ui/scroll-area";
 
-const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`
-);
 export default function HomeNews() {
   return (
     <div className="row-start-2 row-span-1 col-start-1 col-span-8 rounded-xl border-2 flex flex-col gap-2 lg:m-0 mb-5 p-2">

@@ -3,9 +3,6 @@
 import { useState } from "react";
 import {
   format,
-  addDays,
-  subMonths,
-  addMonths,
   startOfMonth,
   endOfMonth,
   eachDayOfInterval,
@@ -15,8 +12,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
   Select,
@@ -29,24 +24,20 @@ import {
 } from "@/components/ui/select";
 
 import Link from "next/link";
-import {
-  CalendarIcon,
-  SquareArrowOutUpRight,
-  ClipboardList,
-} from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { SquareArrowOutUpRight, ClipboardList } from "lucide-react";
+
+// interface Day {
+//   date: Date;
+// }
 
 export default function HomeTask() {
-  const [month, setMonth] = useState("January");
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDays, setSelectedDays] = useState(getMonthDays(currentDate));
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+  const [selectedDays, setSelectedDays] = useState<Date[]>(
+    getMonthDays(currentDate)
+  );
 
   // Utility: Generate Days for the Month
-  function getMonthDays(date: Date) {
+  function getMonthDays(date: Date): Date[] {
     return eachDayOfInterval({
       start: startOfMonth(date),
       end: endOfMonth(date),
@@ -54,7 +45,7 @@ export default function HomeTask() {
   }
 
   // Handle Month Change
-  const handleMonthChange = (value: any) => {
+  const handleMonthChange = (value: string) => {
     const newMonth = new Date(
       currentDate.getFullYear(),
       parseInt(value),
@@ -65,23 +56,10 @@ export default function HomeTask() {
   };
 
   // Handle Year Change
-  const handleYearChange = (value: any) => {
+  const handleYearChange = (value: string) => {
     const newYear = setYear(currentDate, parseInt(value));
     setCurrentDate(newYear);
     setSelectedDays(getMonthDays(newYear));
-  };
-
-  // Handle Previous/Next Buttons
-  const handlePrev = () => {
-    const newDate = subMonths(currentDate, 1);
-    setCurrentDate(newDate);
-    setSelectedDays(getMonthDays(newDate));
-  };
-
-  const handleNext = () => {
-    const newDate = addMonths(currentDate, 1);
-    setCurrentDate(newDate);
-    setSelectedDays(getMonthDays(newDate));
   };
 
   // Generate Month Options
@@ -92,7 +70,7 @@ export default function HomeTask() {
 
   const years = Array.from({ length: 11 }, (_, i) => {
     const year = new Date().getFullYear() + i;
-    return { value: year, label: year };
+    return { value: year.toString(), label: year.toString() };
   });
 
   return (
@@ -100,7 +78,7 @@ export default function HomeTask() {
       className="row-start-1 row-span-1 col-start-8 col-span-5 rounded-xl border-2 flex flex-col gap-2 lg:m-0 mb-5"
       aria-label="Quick Task view section"
     >
-      {/* <div className="flex justify-between items-center p-2">
+      <div className="flex justify-between items-center p-2">
         <div className="flex items-center gap-2 rounded-tl-md">
           <ClipboardList
             size={22}
@@ -116,48 +94,48 @@ export default function HomeTask() {
           <span className="text-xs">View All</span>
           <SquareArrowOutUpRight size={12} strokeWidth={2} />
         </Link>
-      </div> */}
-      {/* <div className="mb-4 px-3"> */}
-      {/* <div className="flex items-center justify-between border-b-2"> */}
-      {/* <Select
-        onValueChange={(e) => handleMonthChange(e)}
-        value={`${currentDate.getMonth()}`}
-      >
-        <SelectTrigger className="w-[80px] px-1">
-          <SelectValue placeholder="Month" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>Months</SelectLabel>
-            {months.map((month) => (
-              <SelectItem key={month.value} value={`${month.value}`}>
-                {month.label.substring(0, 3)}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select> */}
+      </div>
+      <div className="mb-4 px-3">
+        <div className="flex items-center justify-between border-b-2">
+          <Select
+            onValueChange={(e) => handleMonthChange(e)}
+            value={`${currentDate.getMonth()}`}
+          >
+            <SelectTrigger className="w-[80px] px-1">
+              <SelectValue placeholder="Month" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Months</SelectLabel>
+                {months.map((month) => (
+                  <SelectItem key={month.value} value={`${month.value}`}>
+                    {month.label.substring(0, 3)}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
 
-      {/* <Select
-        onValueChange={(e) => handleYearChange(e)}
-        value={`${currentDate.getFullYear()}`}
-      >
-        <SelectTrigger className="w-[80px] px-1">
-          <SelectValue placeholder="Month" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>Years</SelectLabel>
-            {years.map((year) => (
-              <SelectItem key={year.value} value={`${year.value}`}>
-                {year.label}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select> */}
-      {/* </div> */}
-      {/* </div> */}
+          <Select
+            onValueChange={(e) => handleYearChange(e)}
+            value={`${currentDate.getFullYear()}`}
+          >
+            <SelectTrigger className="w-[80px] px-1">
+              <SelectValue placeholder="Year" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Years</SelectLabel>
+                {years.map((year) => (
+                  <SelectItem key={year.value} value={year.value}>
+                    {year.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
 
       <Carousel className="w-full border-b-[1px]">
         <CarouselContent className="flex justify-between items-center">

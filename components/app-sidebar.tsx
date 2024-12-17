@@ -49,7 +49,6 @@ const data = {
       name: "Home",
       url: "#",
       icon: Home,
-      isActive: true,
     },
     {
       name: "My Field",

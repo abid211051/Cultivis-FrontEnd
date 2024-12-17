@@ -1,5 +1,4 @@
 import { AppSidebar } from "@/components/app-sidebar";
-import { MapPin, CloudHail } from "lucide-react";
 import {
   SidebarInset,
   SidebarProvider,

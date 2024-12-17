@@ -1,18 +1,28 @@
 "use client";
 
 import * as React from "react";
-
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
+  // useSidebar,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 
-export function TeamSwitcher({ teams }) {
-  const { isMobile } = useSidebar();
-  const [activeTeam, setActiveTeam] = React.useState(teams[0]);
+// Type definitions for team
+interface Team {
+  name: string;
+  logo: string;
+  plan: string;
+}
+
+interface TeamSwitcherProps {
+  teams: Team[];
+}
+
+export function TeamSwitcher({ teams }: TeamSwitcherProps) {
+  // const { isMobile } = useSidebar();
+  const [activeTeam] = React.useState<Team>(teams[0]);
 
   return (
     <SidebarMenu>

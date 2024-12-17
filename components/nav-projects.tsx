@@ -1,38 +1,35 @@
 "use client";
 
-import { Folder, Forward, MoreHorizontal, Trash2 } from "lucide-react";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
 
-export function NavProjects({ projects }) {
-  const { isMobile } = useSidebar();
+// Define a type for a project item
+type ProjectItem = {
+  name: string; // Project name
+  title?: string; // Optional tooltip title
+  icon?: React.ComponentType; // Optional icon as a React component
+};
+
+// Define props for the NavProjects component
+type NavProjectsProps = {
+  projects: ProjectItem[];
+};
+
+export function NavProjects({ projects }: NavProjectsProps) {
+  // const { isMobile } = useSidebar();
 
   return (
     <>
       <SidebarGroup>
         <SidebarGroupLabel>Tools</SidebarGroupLabel>
         <SidebarMenu>
-          {projects.map((item: any) => (
-            <SidebarMenuItem
-              key={item.name}
-              // defaultOpen={item.isActive}
-              className="group/collapsible"
-            >
+          {projects.map((item) => (
+            <SidebarMenuItem key={item.name} className="group/collapsible">
               <SidebarMenuButton tooltip={item.title}>
                 {item.icon && <item.icon />}
                 <span>{item.name}</span>

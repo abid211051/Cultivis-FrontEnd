@@ -5,15 +5,20 @@ import { ScrollArea } from "../ui/scroll-area";
 
 export default function HomeNews() {
   return (
-    <div className="row-start-2 row-span-1 col-start-1 col-span-8 rounded-xl border-2 flex flex-col gap-2 lg:m-0 mb-5 p-2">
+    // border-2
+    <div className="bg-slate-200 lg:row-start-2 lg:row-span-1 lg:col-start-1 lg:col-span-8 rounded-xl  flex flex-col gap-2 lg:m-0 mb-5 p-2">
       <div className="flex justify-between  items-center">
         <div className="flex items-center gap-2 rounded-tl-md">
-          <Rss size={22} strokeWidth={2} className="rounded-md border-[3px]" />
+          <Rss
+            size={22}
+            strokeWidth={2}
+            className="rounded-md p-[2px] bg-white"
+          />
           <span className="font-medium text-sm">News</span>
         </div>
         <Link
           href={"#"}
-          className="flex items-center justify-between gap-2 p-2 bg-slate-200 rounded-md"
+          className="flex items-center justify-between gap-2 p-2 bg-white rounded-md text-blue-700"
         >
           <span className="text-xs">View All</span>
           <SquareArrowOutUpRight size={12} strokeWidth={2} />
@@ -24,14 +29,14 @@ export default function HomeNews() {
         {Array.from({ length: 6 }).map((_, index) => (
           <div
             key={index}
-            className="flex items-center gap-2 p-1.5 mb-3 bg-slate-200 rounded-md"
+            className="flex gap-1 p-1.5 mb-3 bg-white rounded-md items-center"
           >
             <Image
               src={"/Screenshot 2024-09-09 144240.png"}
               width={100}
               height={40}
               alt="img"
-              className="w-auto h-[80px] rounded-l-md"
+              className="w-auto lg:h-[80px] h-[65px] rounded-l-md"
             />
             <div className="flex flex-col gap-1">
               <p className="text-xs">Warning</p>

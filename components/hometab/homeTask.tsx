@@ -25,6 +25,7 @@ import {
 
 import Link from "next/link";
 import { SquareArrowOutUpRight, ClipboardList } from "lucide-react";
+import { ScrollArea } from "../ui/scroll-area";
 
 // interface Day {
 //   date: Date;
@@ -75,33 +76,34 @@ export default function HomeTask() {
 
   return (
     <div
-      className="row-start-1 row-span-1 col-start-8 col-span-5 rounded-xl border-2 flex flex-col gap-2 lg:m-0 mb-5"
+      // border-2
+      className="bg-slate-200 lg:row-start-1 lg:row-span-1 py-2 lg:col-start-8 lg:col-span-5 rounded-xl  flex flex-col gap-2 lg:m-0 mb-5"
       aria-label="Quick Task view section"
     >
-      <div className="flex justify-between items-center p-2">
+      <div className="flex justify-between items-center  px-2">
         <div className="flex items-center gap-2 rounded-tl-md">
           <ClipboardList
             size={22}
             strokeWidth={2}
-            className="rounded-md border-[3px]"
+            className="rounded-md p-[2px] bg-white"
           />
           <span className="font-medium text-sm">Tasks</span>
         </div>
         <Link
           href={"#"}
-          className="flex items-center justify-between gap-2 p-2 bg-slate-200 rounded-md"
+          className="flex items-center justify-between gap-2 p-2 bg-white rounded-md text-blue-700"
         >
           <span className="text-xs">View All</span>
           <SquareArrowOutUpRight size={12} strokeWidth={2} />
         </Link>
       </div>
-      <div className="mb-4 px-3">
-        <div className="flex items-center justify-between border-b-2">
+      <div className="px-3">
+        <div className="flex gap-1 border-b-2 border-white">
           <Select
             onValueChange={(e) => handleMonthChange(e)}
             value={`${currentDate.getMonth()}`}
           >
-            <SelectTrigger className="w-[80px] px-1">
+            <SelectTrigger className="w-[80px] px-1 border-r-2 border-white">
               <SelectValue placeholder="Month" />
             </SelectTrigger>
             <SelectContent>
@@ -115,7 +117,6 @@ export default function HomeTask() {
               </SelectGroup>
             </SelectContent>
           </Select>
-
           <Select
             onValueChange={(e) => handleYearChange(e)}
             value={`${currentDate.getFullYear()}`}
@@ -136,22 +137,53 @@ export default function HomeTask() {
           </Select>
         </div>
       </div>
-
-      <Carousel className="w-full border-b-[1px]">
-        <CarouselContent className="flex justify-between items-center">
+      <Carousel className="max-w-full border-b-2 border-white">
+        <CarouselContent>
           {selectedDays.map((day, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/5 flex flex-col items-center border-b-[1px] active:bg-green-800"
+              className="flex flex-col basis-1/5 lg:basis-1/5 items-center"
             >
-              <span className="text-xs text-gray-500">
+              <span className="text-xs text-gray-700">
                 {format(day, "EEE")}
               </span>
-              <span className="text-sm font-semibold">{format(day, "d")}</span>
+              <span className="text-sm font-semibold ">{format(day, "d")}</span>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
+      <ScrollArea className="w-full lg:h-auto h-[200px] rounded-b-md px-2">
+        {Array.from({ length: 24 }, (_, i) =>
+          i % 2 != 0 ? (
+            <div key={i} className="mb-2 grid grid-cols-6 gap-2">
+              <div className="col-span-1 flex flex-col justify-end items-end">
+                <span className="text-xs">
+                  {i < 10 ? "0" + i + ":" + "00" : i + ":" + "00"}
+                </span>
+              </div>
+              <div className="col-span-5 border-b-2 border-white border-dashed">
+                <div className="flex items-start p-2 bg-white mb-1 rounded-md gap-1">
+                  <span className="text-left line-clamp-4 text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Modi ut possimus rerum a corrupti ducimus similique,
+                    doloribus accusantium debitis laboriosam?
+                  </span>
+                  <input type="checkbox" className="cursor-pointer" />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div key={i} className="mb-2 grid grid-cols-6 gap-2">
+              <div className="col-span-1 flex flex-col justify-end items-end">
+                <span className="text-xs">
+                  {i < 10 ? "0" + i + ":" + "00" : i + ":" + "00"}
+                </span>
+              </div>
+              <div className="col-span-5 border-b-2 border-white border-dashed"></div>
+            </div>
+          )
+        )}
+      </ScrollArea>
     </div>
   );
 }

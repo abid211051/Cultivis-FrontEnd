@@ -10,16 +10,17 @@ import {
 import Image from "next/image";
 export default function HomeWeather() {
   return (
-    <div className="row-start-1 row-span-1 col-start-1 col-span-7 rounded-xl border-2 flex flex-col justify-between p-2 lg:m-0 mb-5">
+    // border-2
+    <div className="bg-slate-200 lg:row-start-1 lg:row-span-1 lg:col-start-1 lg:col-span-7 rounded-xl  flex flex-col justify-between p-2 lg:m-0 mb-5">
       <div aria-label="location" className="flex items-center gap-2">
         <MapPin size={15} strokeWidth={2} />
         <p className="text-sm uppercase">DhoonShadda Bazar feni, Bangladesh</p>
       </div>
       <div
         aria-label="temperature"
-        className="flex justify-between items-center py-1"
+        className="flex justify-around items-center py-1"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <span className="text-6xl">28 &#176;C</span>
           <div className="flex flex-col">
             <span className="text-sm">High:32&#176;C</span>
@@ -65,51 +66,21 @@ export default function HomeWeather() {
         </div>
       </div>
       <div aria-label="future forecast">
-        <div className="w-full flex justify-between p-1 bg-slate-200 rounded-md my-1">
-          <button className="flex-1 bg-white rounded-md">Hourly</button>
+        <div className="w-full flex justify-between p-1 bg-white rounded-md my-1">
+          <button className="flex-1 bg-slate-200 rounded-md">Hourly</button>
           <button className="flex-1 rounded-md">Weekly</button>
         </div>
         <div className="flex justify-between">
-          <div className="flex flex-col justify-center items-center">
-            <span className="font-semibold text-sm">Now</span>
-            <div className="flex justify-center items-center">
-              <CloudMoon size={12} />
-              <span className="text-xs">100%</span>
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={i} className="flex flex-col justify-center items-center">
+              <span className="font-semibold text-sm">Now</span>
+              <div className="flex justify-center items-center">
+                <CloudMoon size={12} />
+                <span className="text-xs">100%</span>
+              </div>
+              <span className="font-semibold text-sm">19&#176;C</span>
             </div>
-            <span className="font-semibold text-sm">19&#176;C</span>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <span className="font-semibold text-sm">Tue</span>
-            <div className="flex justify-center items-center">
-              <CloudMoon size={12} />
-              <span className="text-xs">100%</span>
-            </div>
-            <span className="font-semibold text-sm">19&#176;C</span>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <span className="font-semibold text-sm">23:49</span>
-            <div className="flex justify-center items-center">
-              <CloudMoon size={12} />
-              <span className="text-xs">100%</span>
-            </div>
-            <span className="font-semibold text-sm">19&#176;C</span>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <span className="font-semibold text-sm">12:57</span>
-            <div className="flex justify-center items-center">
-              <CloudMoon size={12} />
-              <span className="text-xs">100%</span>
-            </div>
-            <span className="font-semibold text-sm">19&#176;C</span>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <span className="font-semibold text-sm">Wed</span>
-            <div className="flex justify-center items-center">
-              <CloudMoon size={12} />
-              <span className="text-xs">100%</span>
-            </div>
-            <span className="font-semibold text-sm">19&#176;C</span>
-          </div>
+          ))}
         </div>
       </div>
     </div>

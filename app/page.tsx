@@ -13,12 +13,12 @@ export default function Page() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className="h-screen py-3 lg:px-3 px-2">
+      <SidebarInset className="h-screen py-3 xl:px-5 lg:px-3 px-2">
         {/* shrink-0 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 */}
         <header className="h-[5%]">
           <SidebarTrigger className="-ml-1" />
         </header>
-        <div className="h-[95%] lg:grid grid-rows-2 grid-cols-12 gap-3">
+        <div className="h-[95%] grid lg:grid-rows-2 lg:grid-cols-12 grid-cols-1 xl:gap-5 gap-3">
           <HomeWeather />
           <HomeTask />
           <HomeNews />

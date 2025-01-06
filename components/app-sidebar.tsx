@@ -34,7 +34,7 @@ const data = {
   },
   teams: [
     {
-      name: "Farmhub",
+      name: "Cultivis",
       logo: "/min.webp",
       plan: "System",
     },
@@ -93,14 +93,14 @@ const data = {
 export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="">
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="">
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="">
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />

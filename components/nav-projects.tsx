@@ -26,7 +26,7 @@ export function NavProjects({ projects }: NavProjectsProps) {
   return (
     <>
       <SidebarGroup>
-        <SidebarGroupLabel>Tools</SidebarGroupLabel>
+        <SidebarGroupLabel className="text-[#109c6d]">Tools</SidebarGroupLabel>
         <SidebarMenu>
           {projects.map((item) => (
             <SidebarMenuItem key={item.name} className="group/collapsible">

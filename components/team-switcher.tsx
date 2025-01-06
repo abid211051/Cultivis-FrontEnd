@@ -5,6 +5,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarGroup,
+  SidebarGroupLabel,
   // useSidebar,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
@@ -26,8 +28,9 @@ export function TeamSwitcher({ teams }: TeamSwitcherProps) {
 
   return (
     <SidebarMenu>
-      <SidebarMenuItem>
+      <SidebarMenuItem className="group/collapsible">
         <SidebarMenuButton
+          tooltip={activeTeam.name}
           size="lg"
           className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
         >
@@ -40,7 +43,9 @@ export function TeamSwitcher({ teams }: TeamSwitcherProps) {
           />
           <div className="grid flex-1 text-left text-sm leading-tight">
             <span className="truncate font-semibold">{activeTeam.name}</span>
-            <span className="truncate text-xs">{activeTeam.plan}</span>
+            <span className="truncate text-xs text-[#109c6d]">
+              {activeTeam.plan}
+            </span>
           </div>
         </SidebarMenuButton>
       </SidebarMenuItem>

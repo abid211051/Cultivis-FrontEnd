@@ -6,12 +6,19 @@ import {
   WindArrowDown,
   Wind,
 } from "lucide-react";
-
 import Image from "next/image";
+import { Play } from "next/font/google";
+
+const play = Play({
+  weight: "400",
+});
+
 export default function HomeWeather() {
   return (
     // border-2
-    <div className="bg-slate-200 lg:row-start-1 lg:row-span-1 lg:col-start-1 lg:col-span-7 rounded-xl  flex flex-col justify-between p-2 lg:m-0 mb-5">
+    <div
+      className={`${play.className} bg-white lg:row-start-1 lg:row-span-1 lg:col-start-1 lg:col-span-7 rounded-xl  flex flex-col justify-between p-2 lg:m-0 mb-5`}
+    >
       <div aria-label="location" className="flex items-center gap-2">
         <MapPin size={15} strokeWidth={2} />
         <p className="text-sm uppercase">DhoonShadda Bazar feni, Bangladesh</p>
@@ -29,50 +36,60 @@ export default function HomeWeather() {
         </div>
         <div>
           <p className="text-xs text-center">Mid Rain</p>
-          <Image src={"/cloudy-night.png"} width={70} height={70} alt="night" />
+          <Image src={"/cloudy-night.png"} width={60} height={60} alt="night" />
         </div>
       </div>
       <div
         aria-label="other weather metrics"
-        className="flex justify-between pb-1"
+        className="flex justify-between items-center px-2"
       >
         <div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 ">
             <Waves size={15} />
             <span className="text-xs">Humidity</span>
           </div>
-          <p className="font-semibold">30%</p>
+          <p className="text-sm font-semibold">30%</p>
         </div>
         <div>
           <div className="flex items-center gap-1">
             <Droplet size={15} />
             <span className="text-xs">Precipitation</span>
           </div>
-          <p className="font-semibold">5.1ml</p>
+          <p className="text-sm font-semibold">5.1ml</p>
         </div>
         <div>
           <div className="flex items-center gap-1">
             <WindArrowDown size={15} />
             <span className="text-xs">Pressure</span>
           </div>
-          <p className="font-semibold">450hPa</p>
+          <p className="text-sm font-semibold">450hPa</p>
         </div>
         <div>
           <div className="flex items-center gap-1">
             <Wind size={15} />
             <span className="text-xs">Wind</span>
           </div>
-          <p className="font-semibold">5km/h</p>
+          <p className="text-sm font-semibold">5km/h</p>
         </div>
       </div>
-      <div aria-label="future forecast">
-        <div className="w-full flex justify-between p-1 bg-white rounded-md my-1">
-          <button className="flex-1 bg-slate-200 rounded-md">Hourly</button>
-          <button className="flex-1 rounded-md">Weekly</button>
+      <div
+        aria-label="future forecast"
+        className="flex flex-col bg-gradient-to-b from-[#b1c1ba] to-[#466b5d]  rounded-md"
+      >
+        <div className="w-full flex justify-between p-1">
+          <button className="flex-1 bg-white rounded-md p-1 font-semibold">
+            Hourly
+          </button>
+          <button className="flex-1 rounded-md text-white font-semibold">
+            Weekly
+          </button>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-white p-1 border-t-[2px]">
           {Array.from({ length: 5 }, (_, i) => (
-            <div key={i} className="flex flex-col justify-center items-center">
+            <div
+              key={i}
+              className="flex flex-col justify-center items-center  px-1 rounded-md"
+            >
               <span className="font-semibold text-sm">Now</span>
               <div className="flex justify-center items-center">
                 <CloudMoon size={12} />

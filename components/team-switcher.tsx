@@ -5,8 +5,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarGroup,
-  SidebarGroupLabel,
   // useSidebar,
 } from "@/components/ui/sidebar";
 import Image from "next/image";

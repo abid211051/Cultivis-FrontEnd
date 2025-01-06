@@ -11,6 +11,7 @@ import { Play } from "next/font/google";
 
 const play = Play({
   weight: "400",
+  subsets: ["latin"],
 });
 
 export default function HomeWeather() {

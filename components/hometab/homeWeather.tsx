@@ -30,8 +30,8 @@ export default function HomeWeather() {
         <div className="flex items-center gap-2">
           <span className="text-6xl">28 &#176;C</span>
           <div className="flex flex-col">
-            <span className="text-sm">High:32&#176;C</span>
-            <span className="text-sm">Low:12&#176;C</span>
+            <span className="text-sm">H:32&#176;C</span>
+            <span className="text-sm">L:12&#176;C</span>
           </div>
         </div>
         <div>

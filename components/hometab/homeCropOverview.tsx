@@ -14,9 +14,9 @@ export default function HomeCropOverview() {
     <div className="lg:row-start-2 lg:row-span-1 lg:col-start-9 lg:col-span-4 rounded-xl flex flex-col justify-between gap-2">
       <Link
         href={"#"}
-        className="bg-gradient-to-r from-[#008055] to-[#2dd39c] flex-1 flex flex-col text-white justify-between gap-3  px-2 pt-1 rounded-xl"
+        className="bg-gradient-to-r from-[#008055] to-[#2dd39c] flex-1 flex flex-col text-white justify-between gap-3  p-2 rounded-xl"
       >
-        <div className="flex justify-between items-center py-1">
+        <div className="flex justify-between items-center">
           <div className="flex items-center gap-1">
             <Vegan
               size={22}
@@ -34,7 +34,7 @@ export default function HomeCropOverview() {
       </Link>
       <Link
         href={"#"}
-        className="bg-[#fde545] flex-1 flex flex-col justify-between gap-1 py-1 rounded-xl"
+        className="bg-[#e8d038] flex-1 flex flex-col justify-between gap-1 py-1 rounded-xl"
       >
         <div className="flex items-center gap-1 px-2">
           <WalletMinimal
@@ -60,7 +60,7 @@ export default function HomeCropOverview() {
       </Link>
       <Link
         href={"#"}
-        className="bg-[#2d65ff] flex-1 flex flex-col justify-center text-white  items-center rounded-xl"
+        className="bg-[#2d65ff] flex-1 flex flex-col justify-center text-white  items-center rounded-xl py-1"
       >
         <div className="font-bold  flex items-center justify-center gap-2 p-1">
           <Users size={22} strokeWidth={2} className="" />

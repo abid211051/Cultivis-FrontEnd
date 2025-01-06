@@ -14,7 +14,7 @@ export default function Page() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset className="lg:h-screen bg-[#d9dede]">
-        <header className="h-[5%] flex items-center">
+        <header className="lg:h-[5%] h-[40px] flex items-center">
           <SidebarTrigger className="ml-2" />
         </header>
         <div className="h-[95%] grid lg:grid-rows-2 lg:grid-cols-12 grid-cols-1 xl:gap-5 gap-3 py-3 xl:py-5 xl:px-5 lg:px-3 px-2">

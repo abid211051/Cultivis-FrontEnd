@@ -156,15 +156,15 @@ export default function HomeTask() {
       <ScrollArea className="w-full lg:h-auto h-[200px] rounded-b-md px-2">
         {Array.from({ length: 24 }, (_, i) =>
           i % 2 != 0 ? (
-            <div key={i} className="mb-2 grid grid-cols-6 gap-2 ">
+            <div key={i} className="mb-2 grid grid-cols-6 gap-2 text-justify">
               <div className="col-span-1 flex flex-col justify-end items-end">
                 <span className="text-xs">
                   {i < 10 ? "0" + i + ":" + "00" : i + ":" + "00"}
                 </span>
               </div>
               <div className="col-span-5 border-b-2 border-[#0b9466] border-dashed py-1">
-                <div className="flex items-start p-2 bg-[#d9dede] font-medium line-through text-black mb-1 rounded-md gap-1 h-full">
-                  <span className="text-start line-clamp-4 text-sm">
+                <div className="flex items-start p-2 bg-[#d9dede] font-medium line-through text-black mb-1 rounded-md gap-2 h-full">
+                  <span className="line-clamp-4 text-sm">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Modi ut possimus rerum a corrupti ducimus similique,
                     doloribus accusantium debitis laboriosam?

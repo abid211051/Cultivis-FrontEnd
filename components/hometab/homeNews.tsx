@@ -44,7 +44,7 @@ export default function HomeNews() {
                 className="w-auto object-contain rounded-md h-full group-hover:scale-110 transition-transform"
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 text-justify">
               <p
                 className={`text-xs ${
                   index % 2 == 1 ? "bg-[#2c14e2]" : "bg-[#dc1c21]"

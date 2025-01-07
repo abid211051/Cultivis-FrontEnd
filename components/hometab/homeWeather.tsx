@@ -46,28 +46,28 @@ export default function HomeWeather() {
       >
         <div>
           <div className="flex items-center gap-1 ">
-            <Waves size={15} />
+            <Waves size={15} className="text-[#2196f3]" />
             <span className="text-xs">Humidity</span>
           </div>
           <p className="text-sm font-semibold">30%</p>
         </div>
         <div>
           <div className="flex items-center gap-1">
-            <Droplet size={15} />
+            <Droplet size={15} className="text-[#2196f3]" />
             <span className="text-xs">Precipitation</span>
           </div>
           <p className="text-sm font-semibold">5.1ml</p>
         </div>
         <div>
           <div className="flex items-center gap-1">
-            <WindArrowDown size={15} />
+            <WindArrowDown size={15} className="text-[#2196f3]" />
             <span className="text-xs">Pressure</span>
           </div>
           <p className="text-sm font-semibold">450hPa</p>
         </div>
         <div>
           <div className="flex items-center gap-1">
-            <Wind size={15} />
+            <Wind size={15} className="text-[#2196f3]" />
             <span className="text-xs">Wind</span>
           </div>
           <p className="text-sm font-semibold">5km/h</p>
@@ -75,7 +75,7 @@ export default function HomeWeather() {
       </div>
       <div
         aria-label="future forecast"
-        className="flex flex-col bg-gradient-to-b from-[#b1c1ba] to-[#466b5d]  rounded-md"
+        className="flex flex-col bg-[#30324b]  rounded-md"
       >
         <div className="w-full flex justify-between p-1">
           <button className="flex-1 bg-white rounded-md p-1 font-semibold">
@@ -93,7 +93,7 @@ export default function HomeWeather() {
             >
               <span className="font-semibold text-sm">Now</span>
               <div className="flex justify-center items-center">
-                <CloudMoon size={12} />
+                <CloudMoon size={12} className="text-orange-300" />
                 <span className="text-xs">100%</span>
               </div>
               <span className="font-semibold text-sm">19&#176;C</span>

@@ -59,7 +59,9 @@ export default function HomeNews() {
                 con
               </p>
               <div className="flex gap-2">
-                <p className="text-xs">By admin</p>
+                <p className="text-xs">
+                  By <span className="font-bold">admin</span>
+                </p>
                 <div className="flex gap-1 items-center text-xs">
                   <Calendar size={12} strokeWidth={2} />
                   <span>Aug 30, 2024</span>

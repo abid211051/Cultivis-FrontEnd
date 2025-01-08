@@ -78,10 +78,10 @@ export default function HomeWeather() {
         className="flex flex-col bg-[#30324b]  rounded-md"
       >
         <div className="w-full flex justify-between p-1">
-          <button className="flex-1 bg-white rounded-md p-1 font-semibold">
+          <button className="flex-1 bg-white rounded-t-md p-1 font-semibold">
             Hourly
           </button>
-          <button className="flex-1 rounded-md text-white font-semibold">
+          <button className="flex-1 rounded-t-md text-white font-semibold">
             Weekly
           </button>
         </div>

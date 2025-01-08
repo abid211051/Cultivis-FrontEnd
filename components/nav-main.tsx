@@ -23,16 +23,17 @@ type NavMainProps = {
 export function NavMain({ items }: NavMainProps) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel className="text-[#109c6d]">Tabs</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-[#ffb055]">Tabs</SidebarGroupLabel>
       <SidebarMenu className="flex flex-col gap-3">
         {items.map((item) => (
           <SidebarMenuItem key={item.name} className="group/collapsible">
-            <SidebarMenuButton
-              tooltip={item.name}
-              className={`${item.name === "Ask Quo" ? "text-yellow-300" : ""}`}
-            >
+            <SidebarMenuButton tooltip={item.name}>
               {item.icon && <item.icon />}
-              <span>{item.name}</span>
+              <span
+                className={`${item.name === "Ask Quo" ? "text-gradient" : ""}`}
+              >
+                {item.name}
+              </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}
